@@ -1,0 +1,12 @@
+LowLevelDesign\DesignVendingMachine\Inventory.class
+LowLevelDesign\DesignVendingMachine\VendingStates\impl\HasMoneyState.class
+LowLevelDesign\DesignVendingMachine\Main.class
+LowLevelDesign\DesignVendingMachine\ItemType.class
+LowLevelDesign\DesignVendingMachine\VendingStates\impl\SelectionState.class
+LowLevelDesign\DesignVendingMachine\Coin.class
+LowLevelDesign\DesignVendingMachine\ItemShelf.class
+LowLevelDesign\DesignVendingMachine\VendingMachine.class
+LowLevelDesign\DesignVendingMachine\VendingStates\impl\IdleState.class
+LowLevelDesign\DesignVendingMachine\VendingStates\State.class
+LowLevelDesign\DesignVendingMachine\Item.class
+LowLevelDesign\DesignVendingMachine\VendingStates\impl\DispenseState.class
