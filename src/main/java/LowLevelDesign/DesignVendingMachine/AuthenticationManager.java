@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package LowLevelDesign.DesignVendingMachine;
 
-/**
- *
- * @author sala8
- */
-public class AuthenticationManager {
-    
-   
+public interface AuthenticationManager {
+    boolean authenticate(String username, String password);
+    boolean authenticatePin(String pin);
+    boolean authenticateSocialNetworks(String socialMedia);
 }
