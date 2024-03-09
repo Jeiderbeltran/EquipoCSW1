@@ -32,7 +32,7 @@ public class UsernamePasswordAuthenticationManagerImpl implements Authentication
                 loadedUsers.add(new User(userData[0], userData[1]));
             }
         } catch (FileNotFoundException e) {
-            // Manejar la ausencia del archivo
+            e.printStackTrace();
         }
         return loadedUsers;
     }
