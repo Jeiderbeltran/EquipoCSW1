@@ -8,12 +8,13 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import LowLevelDesign.DesignVendingMachine.User;
 
 public class UsernamePasswordAuthenticationManagerImpl implements Authentication {
     private List<User> users;
-    private int intentosFallidos = 0;
 
     public UsernamePasswordAuthenticationManagerImpl() {
         this.users = loadUsersFromFile();
@@ -47,22 +48,28 @@ public class UsernamePasswordAuthenticationManagerImpl implements Authentication
     }
 
     public void addUser(String username, String password) {
-        users.add(new User(username, password));
-        saveUsersToFile();
+        if (isPasswordValid(password)) {
+            users.add(new User(username, password));
+            saveUsersToFile();
+        } else {
+            System.out.println("La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un caracter especial y un número");
+        }
     }
 
     @Override
     public boolean authenticate(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                intentosFallidos = 0;
                 return true;
             }
         }
-        intentosFallidos++;
-        if (intentosFallidos >= 3) {
-            System.out.println("Usuario bloqueado. Contacte al administrador");
-        }
         return false;
+    }
+
+    private boolean isPasswordValid(String password) {
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
     }
 }
